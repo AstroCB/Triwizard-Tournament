@@ -43,7 +43,7 @@ namespace DaydreamElements.Teleport {
 
     /// Layers that raycasting can hit.
     [Tooltip("Layers that raycasting can hit.")]
-    public LayerMask raycastMask = 8;
+    public LayerMask raycastMask = Physics.AllLayers;
 
     /// Max distance to allow teleporting.
     [Tooltip("Max distance to allow teleporting.")]
