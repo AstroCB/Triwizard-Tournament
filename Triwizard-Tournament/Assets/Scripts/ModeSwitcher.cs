@@ -44,6 +44,10 @@ public class ModeSwitcher : MonoBehaviour
                 actionComplete = true;
             }
         }
+
+        else if (controller.GetButtonUp(GvrControllerButton.App)) {
+            actionComplete = false;
+        }
         
     }
 }
