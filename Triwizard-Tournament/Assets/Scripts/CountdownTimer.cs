@@ -6,12 +6,14 @@ using UnityEngine.UI;
 public class CountdownTimer : MonoBehaviour
 {
     public GameObject endMenu;
+    public GameObject camera;
     private float countdownTimer = 600f; //10 minutes, 600 seconds
     private Text timerText;
 
     // Start is called before the first frame update
     void Start()
     {
+        endMenu.SetActive(false);
         timerText = GetComponent<Text>();
     }
 
@@ -19,9 +21,23 @@ public class CountdownTimer : MonoBehaviour
     void Update()
     {
         countdownTimer -= Time.deltaTime;
-        timerText.text = countdownTimer.ToString("f2");
+
+        //Format time to look like minutes : seconds
+        string minutes = ((int)countdownTimer / 60).ToString();
+        string seconds = (countdownTimer % 60).ToString("f0");
+
+        if ((countdownTimer % 60) < 9) {
+            timerText.text = minutes + ":0" + seconds;
+        } else {
+            timerText.text = minutes + ":" + seconds;
+        }
+
         if (countdownTimer <= 0) {
+            timerText.text = "Time!";
             
+            endMenu.transform.position = camera.transform.position + camera.transform.forward * 0.75f;
+            endMenu.transform.rotation = camera.transform.rotation;
+            endMenu.SetActive(true);
         }
     }
 }
