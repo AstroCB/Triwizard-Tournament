@@ -7,8 +7,9 @@ public class CountdownTimer : MonoBehaviour
 {
     public GameObject endMenu;
     public GameObject camera;
-    private float countdownTimer = 600f; //10 minutes, 600 seconds
+    private float countdownTimer = 6f; //10 minutes, 600 seconds
     private Text timerText;
+    private bool gameOver = false;
 
     // Start is called before the first frame update
     void Start()
@@ -32,12 +33,13 @@ public class CountdownTimer : MonoBehaviour
             timerText.text = minutes + ":" + seconds;
         }
 
-        if (countdownTimer <= 0) {
+        if (countdownTimer <= 0 && !gameOver) {
             timerText.text = "Time!";
             
             endMenu.transform.position = camera.transform.position + camera.transform.forward * 0.75f;
             endMenu.transform.rotation = camera.transform.rotation;
             endMenu.SetActive(true);
+            gameOver = true;
         }
     }
 }
