@@ -12,7 +12,7 @@ public class ModeSwitcher : MonoBehaviour
 
     public GameObject menu;
     public GameObject camera;
-    
+    public GameObject countdownBox;
 
 
     // Start is called before the first frame update
@@ -20,6 +20,7 @@ public class ModeSwitcher : MonoBehaviour
     {
         controller = GvrControllerInput.GetDevice(GvrControllerHand.Dominant);
         menu.SetActive(false);
+        countdownBox.SetActive(true);
         timer = 0.0f;
         actionComplete = false;
         menuActive = false;
