@@ -7,7 +7,7 @@ public class CountdownTimer : MonoBehaviour
 {
     public GameObject endMenu;
     public GameObject camera;
-    private float countdownTimer = 6f; //10 minutes, 600 seconds
+    private float countdownTimer = 600f; //10 minutes, 600 seconds
     private Text timerText;
     private bool gameOver = false;
 

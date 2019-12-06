@@ -20,6 +20,5 @@ public class RiddleMenuAction : MonoBehaviour
         endMenu.SetActive(true);
         endMenu.transform.position = camera.transform.position + camera.transform.forward * 0.75f;
         endMenu.transform.rotation = camera.transform.rotation;
-        //thisMenu.SetActive(false);
     }
 }
