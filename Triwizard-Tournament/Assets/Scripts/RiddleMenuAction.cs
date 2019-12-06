@@ -7,6 +7,7 @@ public class RiddleMenuAction : MonoBehaviour
     public GameObject thisMenu;
     public GameObject endMenu;
     public GameObject camera;
+    public GameObject timer;
 
     //Correct choice, player continues
     public void Correct()
@@ -20,5 +21,6 @@ public class RiddleMenuAction : MonoBehaviour
         endMenu.SetActive(true);
         endMenu.transform.position = camera.transform.position + camera.transform.forward * 0.75f;
         endMenu.transform.rotation = camera.transform.rotation;
+        timer.GetComponent<CountdownTimer>().gameOver = true;
     }
 }
