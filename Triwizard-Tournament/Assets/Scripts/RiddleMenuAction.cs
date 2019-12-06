@@ -5,17 +5,21 @@ using UnityEngine;
 public class RiddleMenuAction : MonoBehaviour
 {
     public GameObject thisMenu;
+    public GameObject endMenu;
+    public GameObject camera;
 
-    //Correct choice, player continues and no points deducted.
+    //Correct choice, player continues
     public void Correct()
     {
         thisMenu.SetActive(false);
     }
 
-    //Wrong choice, deduct point by 1, if player has had 3 deductions, then game over.
-    // ** NOT IMPLEMENTED YET **
+    //Wrong choice, player loses
     public void Wrong()
     {
-        thisMenu.SetActive(false);
+        endMenu.SetActive(true);
+        endMenu.transform.position = camera.transform.position + camera.transform.forward * 0.75f;
+        endMenu.transform.rotation = camera.transform.rotation;
+        //thisMenu.SetActive(false);
     }
 }
